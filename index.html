@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://mgx-backend-cdn.metadl.com/generate/images/456529/2025-12-28/f2c4b775-eb04-492d-aa58-b057f6572a9f.png" type="image/png">
+    <title>SN Security - Learn Hacking. Secure Future.</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Particle.js Background -->
+    <div id="particles-js"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="https://mgx-backend-cdn.metadl.com/generate/images/456529/2025-12-28/f2c4b775-eb04-492d-aa58-b057f6572a9f.png" alt="SN Security Logo">
+                <span>SN Security</span>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="roadmap.html" class="nav-link">Roadmap</a></li>
+                <li><a href="tools.html" class="nav-link">Tools</a></li>
+                <li><a href="ctf-news.html" class="nav-link">CTF & News</a></li>
+                <li><a href="osint.html" class="nav-link">OSINT</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title neon-glow">SN SECURITY</h1>
+            <div class="hero-subtitle">
+                <span id="typed"></span>
+            </div>
+            <p class="hero-tagline">Learn Hacking. Secure Future.</p>
+            <div class="hero-buttons">
+                <a href="roadmap.html" class="btn btn-primary">Start Learning</a>
+                <a href="tools.html" class="btn btn-secondary">Explore Tools</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://mgx-backend-cdn.metadl.com/generate/images/456529/2025-12-28/95d1b703-6e39-4193-98d3-d4574da58c11.png" alt="Cyber Network">
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section class="intro-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title neon-glow">Welcome to SN Security</h2>
+                <p class="section-subtitle">Your Gateway to Ethical Hacking & Cybersecurity</p>
+            </div>
+            <div class="intro-grid">
+                <div class="intro-card" data-aos="fade-up">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>Ethical Hacking</h3>
+                    <p>Learn penetration testing, vulnerability assessment, and security auditing with hands-on practice.</p>
+                </div>
+                <div class="intro-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+                        </svg>
+                    </div>
+                    <h3>OSINT Tools</h3>
+                    <p>Master open-source intelligence gathering techniques and tools for information security research.</p>
+                </div>
+                <div class="intro-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                        </svg>
+                    </div>
+                    <h3>CTF Challenges</h3>
+                    <p>Practice your skills with Capture The Flag challenges and stay updated with cybersecurity news.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title neon-glow">What We Offer</h2>
+                <p class="section-subtitle">Comprehensive Resources for Aspiring Security Professionals</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item" data-aos="fade-right">
+                    <div class="feature-number">01</div>
+                    <h3>Structured Learning Path</h3>
+                    <p>Follow our comprehensive roadmap from beginner to advanced ethical hacking techniques.</p>
+                    <a href="roadmap.html" class="feature-link">View Roadmap →</a>
+                </div>
+                <div class="feature-item" data-aos="fade-right" data-aos-delay="100">
+                    <div class="feature-number">02</div>
+                    <h3>Professional Tools</h3>
+                    <p>Access 20+ essential ethical hacking tools with detailed guides and video tutorials.</p>
+                    <a href="tools.html" class="feature-link">Explore Tools →</a>
+                </div>
+                <div class="feature-item" data-aos="fade-right" data-aos-delay="200">
+                    <div class="feature-number">03</div>
+                    <h3>OSINT Resources</h3>
+                    <p>Discover 100+ OSINT tools and techniques for intelligence gathering and investigation.</p>
+                    <a href="osint.html" class="feature-link">Learn OSINT →</a>
+                </div>
+                <div class="feature-item" data-aos="fade-right" data-aos-delay="300">
+                    <div class="feature-number">04</div>
+                    <h3>CTF & News</h3>
+                    <p>Stay updated with the latest CTF platforms and cybersecurity news from trusted sources.</p>
+                    <a href="ctf-news.html" class="feature-link">Stay Updated →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content" data-aos="zoom-in">
+                <h2 class="neon-glow">Ready to Start Your Journey?</h2>
+                <p>Join thousands of security enthusiasts learning ethical hacking and cybersecurity.</p>
+                <div class="cta-buttons">
+                    <a href="roadmap.html" class="btn btn-primary btn-large">Get Started Now</a>
+                    <a href="contact.html" class="btn btn-secondary btn-large">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://mgx-backend-cdn.metadl.com/generate/images/456529/2025-12-28/f2c4b775-eb04-492d-aa58-b057f6572a9f.png" alt="SN Security">
+                        <span>SN Security</span>
+                    </div>
+                    <p class="footer-tagline">Learn Hacking. Secure Future.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Twitter">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
+                                <circle cx="4" cy="4" r="2"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-link" aria-label="YouTube">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/>
+                                <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="roadmap.html">Roadmap</a></li>
+                        <li><a href="tools.html">Tools</a></li>
+                        <li><a href="osint.html">OSINT</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="ctf-news.html">CTF & News</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SN Security. All rights reserved. | Designed for ethical hacking education.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="./script.js"></script>
+</body>
+</html>
