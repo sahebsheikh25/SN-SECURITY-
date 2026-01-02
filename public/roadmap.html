@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="assets/logo.svg">
+    <title>Learning Roadmap - SN Security</title>
+    <meta name="description" content="SN Security - Lost phone report, OSINT tools, cyber safety platform. Secure your digital identity.">
+    <link rel="preload" href="./style.css" as="style" onload="this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="./style.css"></noscript>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        .roadmap-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 60px;
+            background: url('https://mgx-backend-cdn.metadl.com/generate/images/456529/2025-12-28/91c6f2dd-0792-4b47-ad1f-6b69fd291e3f.png') center/cover;
+            position: relative;
+        }
+
+        .roadmap-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(1, 9, 19, 0.9) 0%, rgba(10, 26, 46, 0.8) 100%);
+        }
+
+        .roadmap-hero .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .roadmap-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .roadmap-step {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .roadmap-step::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--glow-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .roadmap-step:hover {
+            border-color: var(--accent-primary);
+            box-shadow: 0 10px 40px rgba(0, 255, 178, 0.2);
+            transform: translateX(10px);
+        }
+
+        .step-number {
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--bg-primary);
+            box-shadow: 0 0 20px var(--glow-color);
+            z-index: 1;
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-icon {
+            width: 50px;
+            height: 50px;
+            color: var(--accent-primary);
+        }
+
+        .step-icon svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 10px var(--glow-color));
+        }
+
+        .roadmap-step h3 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .step-duration {
+            font-family: var(--font-mono);
+            color: var(--accent-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-description {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-topics {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .topic-tag {
+            background: rgba(0, 255, 178, 0.1);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--accent-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .topic-tag:hover {
+            background: rgba(0, 255, 178, 0.2);
+            border-color: var(--accent-primary);
+            transform: translateY(-2px);
+        }
+
+        .step-resources {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .resource-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .resource-link:hover {
+            text-shadow: 0 0 10px var(--glow-color);
+            transform: translateX(5px);
+        }
+
+        .roadmap-timeline {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--accent-primary) 0%, var(--accent-secondary) 100%);
+            box-shadow: 0 0 10px var(--glow-color);
+        }
+
+        @media (max-width: 768px) {
+            .roadmap-step::before,
+            .step-number {
+                display: none;
+            }
+
+            .roadmap-step {
+                margin-left: 0;
+            }
+
+            .roadmap-step:hover {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="nav-home" aria-label="SN Security Home">
+                    <img src="assets/logo.svg" alt="SN Security Logo" width="40" height="40" decoding="async" loading="lazy">
+                    <span>SN Security</span>
+                </a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="roadmap.html" class="nav-link active">Roadmap</a></li>
+                <li><a href="tools.html" class="nav-link">Tools</a></li>
+                <li><a href="tech-store.html" class="nav-link">Store</a></li>
+                <li><a href="ctf-news.html" class="nav-link">CTF & News</a></li>
+                <li><a href="osint.html" class="nav-link">OSINT</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="roadmap-hero">
+        <div class="hero-content">
+            <h1 class="hero-title neon-glow">LEARNING ROADMAP</h1>
+            <p class="hero-tagline">Your Path to Becoming an Ethical Hacker</p>
+        </div>
+    </section>
+
+    <div class="roadmap-container">
+        <div style="position: relative; padding-left: 40px;">
+            <div class="roadmap-timeline"></div>
+
+            <div class="roadmap-step" data-aos="fade-left">
+                <div class="step-number">1</div>
+                <div class="step-header">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                            <line x1="8" y1="21" x2="16" y2="21"/>
+                            <line x1="12" y1="17" x2="12" y2="21"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Fundamentals of Computing</h3>
+                        <div class="step-duration">Duration: 2-3 months</div>
+                    </div>
+                </div>
+                <p class="step-description">
+                    Build a strong foundation in computer science basics, networking, and operating systems. Understanding how systems work is crucial before learning how to break them.
+                </p>
+                <div class="step-topics">
+                    <span class="topic-tag">Computer Networks</span>
+                    <span class="topic-tag">Operating Systems</span>
+                    <span class="topic-tag">Linux Basics</span>
+                    <span class="topic-tag">TCP/IP Protocol</span>
+                    <span class="topic-tag">Command Line</span>
+                </div>
+                <div class="step-resources">
+                    <a href="#" class="resource-link">📚 Study Materials →</a>
+                    <a href="#" class="resource-link">🎥 Video Tutorials →</a>
+                </div>
+            </div>
+
+            <div class="roadmap-step" data-aos="fade-left" data-aos-delay="100">
+                <div class="step-number">2</div>
+                <div class="step-header">
+                    <div class="step-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="16 18 22 12 16 6"/>
+                            <polyline points="8 6 2 12 8 18"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Programming & Scripting</h3>
+                        <div class="step-duration">Duration: 3-4 months</div>
+                    </div>
+                </div>
+                <p class="step-description">
+                    Learn programming languages essential for security research and automation. Python is highly recommended for beginners, along with Bash scripting for Linux automation.
+                </p>
+                <div class="step-topics">
+                    <span class="topic-tag">Python Programming</span>
+                    <span class="topic-tag">Bash Scripting</span>
+                    <span class="topic-tag">JavaScript Basics</span>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>OSINT Tools & Resources - SN Security</title>
+  <link rel="preload" href="./style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="./style.css"></noscript>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" as="style" onload="this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"></noscript>
+  <style>
+    .tools-hero{min-height:60vh;display:flex;align-items:center;justify-content:center;padding:120px 20px 60px;background:linear-gradient(135deg, rgba(1,9,19,0.9) 0%, rgba(10,26,46,0.8)100%);position:relative}
+    .tools-hero::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg, rgba(1,9,19,0.9) 0%, rgba(10,26,46,0.8)100%)}
+    .tools-hero .hero-content{position:relative;z-index:1;text-align:center}
+    .hero-title{font-family:var(--font-heading);color:var(--accent-primary);font-size:3rem;letter-spacing:2px;margin:0 0 8px;text-transform:uppercase}
+    .neon-glow{text-shadow:0 0 8px var(--glow-color)}
+    .hero-tagline{color:var(--text-secondary);margin:0}
+    .osint-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px;margin-top:20px}
+    .tool-box{display:block;padding:14px;border-radius:10px;background:var(--bg-card);border:1px solid var(--border-color);text-decoration:none;color:var(--text-primary);font-weight:600}
+    .tool-box small{display:block;color:var(--text-secondary);font-weight:400;margin-top:6px}
+    .section-block{padding:40px 0}
+    .section-title{font-family:var(--font-heading);color:var(--accent-primary);margin:0 0 8px}
+    .section-sub{color:var(--text-secondary);margin:0 0 12px}
+
+    /* Mobile lookup card */
+    .lookup-card{background:rgba(6,12,22,0.55);border:1px solid rgba(10,200,150,0.08);padding:26px;border-radius:12px;box-shadow:0 8px 40px rgba(0,0,0,0.6);backdrop-filter:blur(6px)}
+    .lookup-input{width:100%;padding:18px 16px;border-radius:8px;background:rgba(0,0,0,0.45);border:1px solid rgba(30,200,120,0.12);color:var(--text-primary);font-size:16px;outline:none}
+    .lookup-input::placeholder{color:rgba(200,230,210,0.25)}
+    .lookup-buttons{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+
+    /* Tool button base */
+    .tool-btn{display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border-radius:10px;background:linear-gradient(90deg,#00ff9a,#00e08a);color:#042028;font-weight:700;border:none;cursor:pointer;box-shadow:0 10px 30px rgba(0,255,160,0.08);transition:transform .18s cubic-bezier(.2,.9,.3,1),box-shadow .18s ease,background .12s ease,filter .18s ease}
+    .tool-btn svg{width:20px;height:20px;flex:0 0 20px}
+
+    /* Hover / focus: subtle lift + soft glow */
+    .tool-btn:hover, .tool-btn:focus{transform:translateY(-3px) scale(1.02);box-shadow:0 18px 50px rgba(0,255,160,0.18),0 0 20px rgba(0,255,160,0.06) inset;filter:drop-shadow(0 10px 30px rgba(0,255,160,0.12));outline:none}
+    .tool-btn:focus-visible{box-shadow:0 18px 60px rgba(0,255,160,0.22),0 0 26px rgba(0,255,160,0.09) inset;}
+    
+    /* Active / clicked: color shift and pressed transform */
+    .tool-btn:active{transform:translateY(0) scale(0.995);background:linear-gradient(90deg,#00cc85,#009f6f);box-shadow:0 6px 18px rgba(0,0,0,0.45);color:#eafaf4}
+
+    /* Secondary style preservation with its own subtle glow */
+    .tool-btn.secondary{background:linear-gradient(90deg,#0f1620,#0b2330);color:var(--text-primary);border:1px solid rgba(255,255,255,0.03);box-shadow:none}
+    .tool-btn.secondary:hover, .tool-btn.secondary:focus{box-shadow:0 12px 36px rgba(80,150,255,0.08),0 0 12px rgba(80,150,255,0.04) inset;transform:translateY(-2px) scale(1.01)}
+    .tool-btn.secondary:active{background:linear-gradient(90deg,#0b1320,#071722);color:#cfe6ff}
+    
+    /* Top marquee notification - continuous right-to-left glowing sky-blue banner */
+    .top-marquee{position:relative;overflow:hidden;background:linear-gradient(90deg, rgba(2,12,25,0.55), rgba(3,18,34,0.45));padding:6px 0;border-bottom:1px solid rgba(255,255,255,0.03);z-index:999}
+    .top-marquee .marquee-inner{display:flex;align-items:center;gap:64px;white-space:nowrap;will-change:transform;animation:marquee 60s linear infinite}
+    .top-marquee a{display:inline-block;padding:8px 18px;font-weight:800;color:#9ef0ff;text-decoration:none;font-family:var(--font-heading);font-size:1rem;border-radius:6px;box-shadow:0 6px 28px rgba(158,240,255,0.12),0 0 26px rgba(60,180,230,0.06) inset;}
+    .top-marquee a:hover{filter:brightness(1.06);text-decoration:underline}
+    @keyframes marquee{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}
+
+    @media (max-width:720px){.tool-btn{flex:1 1 100%;justify-content:center}}
+    /* Live preview styles for lookup inputs */
+    .lookup-preview{margin-top:12px;padding:12px;border-radius:8px;background:linear-gradient(90deg, rgba(7,12,20,0.6), rgba(10,18,30,0.55));border:1px solid rgba(127,219,255,0.04);color:var(--text-secondary);font-size:0.95rem}
+    .lookup-preview .muted{color:var(--text-secondary);font-size:0.92rem}
+    .lookup-preview .tool-btn{padding:8px 12px;font-size:0.9rem}
+    /* OSINT page two-column layout and TOC styles */
+    .osint-layout{margin-top:28px}
+    .toc .section-title{font-size:1rem;margin:0 0 8px;color:var(--accent-primary)}
+    .toc ul{list-style:none;margin:0;padding:0}
+    .toc li{margin-bottom:6px}
+    .toc a{display:block;padding:6px 8px;border-radius:6px;color:var(--text-secondary);text-decoration:none;font-weight:600}
+    .toc a:hover{background:rgba(0,255,160,0.04);color:var(--accent-primary)}
+    @media (min-width:920px){
+      .osint-layout{display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:start}
+      .toc{position:sticky;top:84px;padding:14px;border-radius:10px;background:linear-gradient(90deg, rgba(6,12,22,0.55), rgba(8,18,30,0.5));border:1px solid rgba(127,219,255,0.04)}
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <a href="index.html" class="nav-home" aria-label="SN Security Home">
+          <img src="assets/logo.svg" alt="SN Security Logo" width="40" height="40" decoding="async" loading="lazy">
+          <span>SN Security</span>
+        </a>
+      </div>
+      <div class="nav-toggle" id="navToggle"><span></span><span></span><span></span></div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="roadmap.html" class="nav-link">Roadmap</a></li>
+        <li><a href="tools.html" class="nav-link">Tools</a></li>
+        <li><a href="tech-store.html" class="nav-link">Store</a></li>
+        <li><a href="ctf-news.html" class="nav-link">CTF & News</a></li>
+        <li><a href="osint.html" class="nav-link active">OSINT</a></li>
+        <li><a href="about.html" class="nav-link">About</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="top-marquee" role="region" aria-label="Site notification">
+    <div class="marquee-inner" aria-hidden="false">
+      <a href="https://www.ceir.gov.in/Request/CeirUserBlockRequestDirect.jsp" target="_blank" rel="noopener noreferrer">Lost / Stolen Mobile? Block It Now — CLICK HERE</a>
+      <a href="https://www.ceir.gov.in/Request/CeirUserBlockRequestDirect.jsp" target="_blank" rel="noopener noreferrer">Lost / Stolen Mobile? Block It Now — CLICK HERE</a>
+    </div>
+  </div>
+
+  <section class="tools-hero">
+    <div class="hero-content">
+      <h1 class="hero-title neon-glow">OSINT Tools & Resources</h1>
+      <p class="hero-tagline">Open Source Intelligence gathering tools and techniques</p>
+    </div>
+  </section>
+
+  <!-- Two-column layout: TOC (left) + content (right) -->
+  <div class="osint-layout container">
+    <aside class="toc" aria-label="OSINT navigation">
+      <h3 class="section-title">On this page</h3>
+      <nav>
+        <ul>
+          <li><a href="#mobile-lookup">Mobile Number Lookup</a></li>
+          <li><a href="#username-lookup">Username / People</a></li>
+          <li><a href="#domain-lookup">Domain Lookup</a></li>
+          <li><a href="#image-lookup">Image / Face Search</a></li>
+          <li><a href="#email-lookup">Email Lookup</a></li>
