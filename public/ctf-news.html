@@ -405,7 +405,7 @@
           const label = status === 'live' ? '🔴 LIVE' : '🟡 UPCOMING';
           const name = ev.name || ev.platform || 'CTF';
           const date = ev.start_date ? ev.start_date : 'TBD';
-          return `<span class="ticker-item"><span class="badge ${status}">${label}</span> <a href="${ev.reg_url||'#'}" target="_blank" rel="noopener noreferrer">${escapeHtml(name)}</a> — <small>${escapeHtml(date)}</small></span>`;
+          return '<span class="ticker-item"><span class="badge ' + status + '">' + label + '</span> <a href="' + (ev.reg_url||'#') + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(name) + '</a> — <small>' + escapeHtml(date) + '</small></span>';
         }).join(' ');
         // duplicate content for smooth scrolling if short
         tickerEl.innerHTML = items + ' ' + items;
@@ -484,20 +484,19 @@
             const badgeLabel = status === 'live' ? 'LIVE' : 'UPCOMING';
             const dateDisplay = end ? `${escapeHtml(start)} — ${escapeHtml(end)}` : escapeHtml(start);
             const reg = ev.reg_url || '#';
-            card.innerHTML = `
-              <div style="display:flex;justify-content:space-between;align-items:start;gap:8px">
-                <div style="display:flex;align-items:center;gap:8px">
-                  <span class="badge ${status.toLowerCase()}">${badgeLabel}</span>
-                  <div class="event-logo">${escapeHtml(logo)}</div>
-                </div>
-              </div>
-              <div class="event-meta">
-                <h4>${escapeHtml(ev.name)}</h4>
-                <div class="event-row"><span>Mode: ${escapeHtml(ev.mode || 'Online')}</span><span>Difficulty: ${escapeHtml(ev.difficulty || 'Varies')}</span></div>
-                <div class="event-dates"><strong>Dates:</strong> ${dateDisplay}</div>
-              </div>
-              <div style="display:flex;justify-content:flex-end;margin-top:8px"><a class="event-cta" href="${reg}" target="_blank" rel="noopener noreferrer">Register</a></div>
-            `;
+            card.innerHTML =
+              '<div style="display:flex;justify-content:space-between;align-items:start;gap:8px">' +
+                '<div style="display:flex;align-items:center;gap:8px">' +
+                  '<span class="badge ' + status.toLowerCase() + '">' + badgeLabel + '</span>' +
+                  '<div class="event-logo">' + escapeHtml(logo) + '</div>' +
+                '</div>' +
+              '</div>' +
+              '<div class="event-meta">' +
+                '<h4>' + escapeHtml(ev.name) + '</h4>' +
+                '<div class="event-row"><span>Mode: ' + escapeHtml(ev.mode || 'Online') + '</span><span>Difficulty: ' + escapeHtml(ev.difficulty || 'Varies') + '</span></div>' +
+                '<div class="event-dates"><strong>Dates:</strong> ' + dateDisplay + '</div>' +
+              '</div>' +
+              '<div style="display:flex;justify-content:flex-end;margin-top:8px"><a class="event-cta" href="' + reg + '" target="_blank" rel="noopener noreferrer">Register</a></div>';
             grid.appendChild(card);
           });
       }
